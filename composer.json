@@ -1,0 +1,23 @@
+{
+    "name": "gmbn/levmodel",
+    "type": "library",
+    "description": "Module from model to framework Levitron",
+    "keywords": ["model","levitron","module levitron"],
+    "homepage": "https://github.com/GMBN/LevModel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gian Nunes",
+            "email": "gianboschette@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LevModel\\": "src/"
+        }
+    }
+}
