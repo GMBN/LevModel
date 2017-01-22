@@ -189,6 +189,8 @@ abstract class Model {
             $method = 'set' . $func;
             if (method_exists($this, $method)) {
                 $this->{$method}($value);
+            }else if(property_exists($this, $name)){
+                $this->{$name} = $value;
             }
         }
     }

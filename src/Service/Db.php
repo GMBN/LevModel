@@ -16,7 +16,7 @@ class Db {
 
         $options = isset($config['options']) ? $config['options'] : [];
         $db = new \PDO(
-                'mysql:host=' . $config['host'] . ':3306;dbname=' . $config['db'], $config['user'], $config['pass'], $options
+                'mysql:host=' . $config['host'] . ';port=3306;dbname=' . $config['db'], $config['user'], $config['pass'], $options
         );
         $this->conn = $db;
         return $db;
