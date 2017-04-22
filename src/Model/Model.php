@@ -144,7 +144,7 @@ abstract class Model {
                 } else {
                     $type = \PDO::PARAM_STR;
                 }
-                $prepare->bindValue(':' . $name, $val, $type);
+                $prepare->bindValue(':' . trim($name), $val, $type);
             }
         }
         if (!$prepare->execute()) {
