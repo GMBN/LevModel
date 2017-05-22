@@ -125,8 +125,8 @@ abstract class Model {
             $prepare->bindValue(':' . $key, $val);
         }
         $e = \sm::getInstance()->get('e');
-        $e->trigger('db.pre.delete', [$sql, $this->_table,$where, $par]);
-        
+        $e->trigger('db.pre.delete', [$sql, $this->_table, $where, $par]);
+
         $this->exec($prepare);
     }
 
@@ -189,7 +189,7 @@ abstract class Model {
             $method = 'set' . $func;
             if (method_exists($this, $method)) {
                 $this->{$method}($value);
-            }else if(property_exists($this, $name)){
+            } else if (property_exists($this, $name)) {
                 $this->{$name} = $value;
             }
         }
@@ -218,6 +218,11 @@ abstract class Model {
             return $rs[0];
         }
         return false;
+    }
+
+    function antiInjection($str) {
+        $str = addslashes($str);
+        return $str;
     }
 
 }
