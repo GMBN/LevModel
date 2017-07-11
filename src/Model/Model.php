@@ -195,7 +195,7 @@ abstract class Model {
         }
     }
 
-    function findAll($where = null) {
+    function findAll($where = null, $order = false) {
         $sql = 'SELECT * FROM ' . $this->_table;
         if (is_array($where)) {
             $sql .=' WHERE ';
@@ -204,7 +204,11 @@ abstract class Model {
             }
             $sql.= ' ' . implode(' AND ', $sql_where);
         }
-        $sql.= ' ORDER BY id DESC';
+        if ($order) {
+            $sql.= ' ORDER BY ' . $order;
+        } else {
+            $sql.= ' ORDER BY id DESC';
+        }
         $rs = $this->query($sql, $where);
         return $rs;
     }
